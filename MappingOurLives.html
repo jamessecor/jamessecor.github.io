@@ -1,0 +1,549 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="mappingStyleSheet.css">
+</head>
+<body>
+    <h1 id="showName" >#nomophobia</h1>
+    <h3 id="showName">(c)2017 James Secor</h3>
+    
+    <!--The phone body-->
+    <div id="shadow"></div>
+    <h3 id="phone" ></h3>
+    <div id="speaker"></div>
+    
+    
+    <!--This is the Phone Screen-->
+    <div class="onPhone" id="phoneScreen" ></div>
+    <button id="topButton" type="button" onclick="offOn()" tabindex="1"></button>
+
+    <!--This is the menu button to get back to the menu-->
+    <button id="menu" type="button" onclick="backToMenu()"></button>
+
+    <!--Images for Virtual Tour-->
+    <img src="images/1.jpg" id="image1" style="display:none" class="image" />
+    <img src="images/2.jpg" id="image2" style="display:none" class="image" />
+    <img src="images/3.jpg" id="image3" style="display:none" class="image" />
+    <img src="images/4.jpg" id="image4" style="display:none" class="image" />
+    <img src="images/5.jpg" id="image5" style="display:none" class="image" />
+    <img src="images/6.jpg" id="image6" style="display:none" class="image" />
+    <img src="images/6a.jpg" id="image6a" style="display:none" class="image" />
+    <img src="images/6b.jpg" id="image6b" style="display:none" class="image" />
+    <img src="images/6c.jpg" id="image6c" style="display:none" class="image" />
+    <img src="images/6d.jpg" id="image6d" style="display:none" class="image" />
+    <img src="images/7.jpg" id="image7" style="display:none" class="image" />
+    <img src="images/8.jpg" id="image8" style="display:none" class="image" />
+    <img src="images/9.jpg" id="image9" style="display:none" class="image" />
+    <img src="images/10.jpg" id="image10" style="display:none" class="image" />
+    <img src="images/12.jpg" id="image12" style="display:none" class="image" />
+    <img src="images/13.jpg" id="image13" style="display:none" class="image" />
+    <img src="images/14.jpg" id="image14" style="display:none" class="image" />
+    <img src="images/15.jpg" id="image15" style="display:none" class="image" />
+    <img src="images/16.jpg" id="image16" style="display:none" class="image" />
+    <img src="images/17.jpg" id="image17" style="display:none" class="image" />
+
+    <!--The Human side (green box with text input)-->
+    <div id="hShadow" style="display:none"></div>
+    <h1 id="humanSideBox" style="display:none"></h1>
+    <input type="text" id="you" class="human" autocomplete="off" tabindex="2" placeholder="Talk to Phone" style="display:none " />
+    
+    <!--Choose What to do from initial screen-->
+    <button class="human" id="selection" type="button" onclick="choose()" style="display:none">Start Activity</button>
+
+    <!--Send: an array holds user messages. alternates them with random from computer array-->
+    <button class="human" id="toPhoneButton" type="button" onclick="sendToPhone()" style="display:none">Send Message</button>
+
+    <!--Button to change color of phone shell-->
+    <button class="human" id="changeShellColor" type="button" onclick="colorChoice()" style="display:none">Change Color</button>
+
+    <!--GameSelector-->
+    <button class="human" id="gameSelect" type="button" onclick="selectGame()" style="display:none">Select Game</button>
+    <!--Animal Guessing Game-->
+    <button class="human" id="guessAnimal" type="button" onclick="answerAnimal()" style="display:none">Submit Response</button>
+    <!--Betting Game-->
+    <button class="human" id="heads" type="button" onclick="bet('heads')" style="display:none">HEADS</button>
+    <button class="human" id="tails" type="button" onclick="bet('tails')" style="display:none">TAILS</button>
+
+    <!--Virtual Tour of Show-->
+    <button class="human" id="tour" type="button" onclick="tour()" style="display:none">More Images</button>
+
+    <!--Scroll Critiques-->
+    <button class="human" id="scrollCritiques" type="button" onclick="scrollCrits()" style="display:none">More Images</button>
+
+    <!--Get User Name for Conversation-->
+    <button class="human" id="getName" type="button" onclick="getName()" style="display:none">Enter Name</button>
+        
+    <!--Unused at this point-->
+    <button class="human" id="spaz" type="button" onclick="spaz()" style="display:none">SPAZZ</button>
+    <button class="human" id="spazOff" type="button" onclick="spazOff()" style="display:none">Stop It!</button>
+
+    <!-- Mobile/Web options -->
+    <a href="file:///C:/Users/James/Dropbox/JavaScriptProject/MappingOurLives.html">web</a>
+    <a href="file:///C:/Users/James/Dropbox/JavaScriptProject/MappingMobile/nomophobia2.7.html">mobile</a>
+
+    <script language="JavaScript">
+        // General Use Variables
+        var switchOn = false;
+        var you = document.getElementById('you');
+        var setButton = ['selection', 'toPhoneButton', 'changeShellColor', 'guessAnimal', 'tour', 'getName', 'scrollCritiques', 'gameSelect'];
+        var currentButton = setButton[0];
+        var initialScreenState = '<center><b><big>Welcome.</big></b><em> Bienvenue.</em></center><br><br>Select an Option:<br>' +
+            '<b>1:</b> Virtual Tour <small>of the Show</small><br>' +
+            '<b>2:</b> What to Think<br>' +
+            '<b>3:</b> <small>Color the</small> Phone Shell<br>' +
+            '<b>4:</b> Play a Game<br>' +
+            '<b>5:</b> <small>Talk</small>Talk<big>Talk</big><br><br>' +
+            'Enter 1, 2, 3, 4 or 5.<br>';
+        var screenState = initialScreenState;
+        // Game variables
+        var animals = [ [2, 'human'], [4, 'cat'], [6, 'insect'], [8, 'octopus'] ];
+        var randomAnimal = Math.round(Math.random() * (animals.length - 1));
+        var points = 0;
+        var correct = 0, total = 0, computerGuesses = 0;
+        // Talk with phone variables        
+        var inputArray = [];
+        var inputIndex = 0;
+        var userName = '_unknown number_';
+        // Tour Variables
+        var images = ['image1', 'image2', 'image3', 'image4', 'image5', 'image6', 'image6a', 'image6b', 'image6c', 'image6d', 'image7', 'image8', 'image10', 'image9', 'image12', 'image13', 'image14', 'image15', 'image16', 'image17'];
+        var imageIndex = 0;
+        var previousImage = images[0];
+        // Change color Variables
+        var screenColor = "document.getElementById('phone').style.background";
+        // Used for convo with user
+        var thoughts = ["Look at me a little longer", "Turn off your brain and stare",
+            "Just Google everything", "I'm sure it's on wikipedia",
+            "My password is 87IkneE00N",
+            "I am your best friend", "I can save you from life",
+            "I will always be about nothing.",
+            "I am a tool and not a burdon.",
+            "Google is the internet, Chrome", "I'll text your phone the insurance number right now",
+            "OK, perfect. That's not actually saving you", "$25.03 a month. So you want to do it?",
+            "You can get email and all that through the tablet.", "Facebook, anything",
+            "You didn't have this on your plan before", "It's called a safety plan",
+            "Do you want insurance on this plan", "I'd definitely recommend it",
+            "If I drop it in the snow...yeah, it should be more than fine",
+            "That's about it, all the software and all that", "If you'll sign right there...",
+            "Is this working?", "The Black Friday weekend.", "Sorry, I'm having trouble with the connection"
+        ];
+        // Ways to think about the show
+        var t = 0;
+        var critiques = ['...but just wanted to let you know that I love the roundabout painting and the factory image.',
+            'The aerial views are fun', 'they give you the feeling that your just following your gps and moving without any thought or effort.',
+            'Neat idea to challenge the role of what phones and technology have on their followers - us. ', 'I wouldn\'t have gone with "#nomophobia."',
+            'I am older and don’t use my phone ', 'I think they\'re cool!', 'I love the aerial shots and especially like the cell phones', 'Is the thinking phone coming?',
+            'The shadows are BLOWING MY MIND!', 'What about the one with all that red?', 'I wish he\'d put in other scenes',
+            'Just the other week a lady had to make it up the road and she was doing this without a phone and it really took me back.',
+            'without using a phone...relying on word of mouth and the directions from someone at a gas station or that lady waiting for the bus....',
+            'What a surprise concept it\'s been awhile since I was going from point a to b without using a phone...',
+            'Yeah, I guess. I\'m wondering if he got the colors right.',
+            'My favourites are 423 and 444, particularly the latter with its numerous shadows'];
+        // Used for colorChoice function
+        var colors = `<br>'red'<br>'blue'<br>'yellow'<br>'green'<br>'white'<br>'turquoise'<br>'brown'<br>'orange'<br>'black'<br>`;
+        
+        // Make enter key work in 'you'
+        you.onkeydown = function (e) { if (e.keyCode == 13) enter() };
+        function enter() {
+            document.getElementById(currentButton).click();
+        }
+
+        // choose activity
+        function choose() {
+            var choice = you.value;
+            var okChoice = 0;
+
+            if (choice == 1) {
+                // Virtual Tour of Show
+                screenState = `Welcome to<br><center><b><big>Virtual Tour Mode</big></b></center><br><br>Press Enter or Click the 'More Images' Button to see the show.<br>`;
+                talkPhone();
+                turnOn(setButton[4]);
+            } else if (choice == 2) {
+                // See critiques of phone
+                t = 0;
+                screenState = `Welcome to <br><big><b><center>Thinking Mode</center></b></big><br>Press enter for<br><em>#nomophobia</em> reviews<br>`;
+                talkPhone();
+                turnOn(setButton[6]);
+                
+            } else if (choice == 3) {
+                // Customize Phone Shell
+                screenState = `Welcome to <br><big><b><center>ColorYourPhone</center></b></big><center><small>Choose a world</small></center><br><em>Enter</em> ${colors}`; //+ colors;
+                talkPhone();
+                turnOn(setButton[2]);
+            } else if (choice == 4) {
+                // play game
+                screenState = `Welcome to<b><center><big>Game Mode</big></center></b><br>1 = Heads or Tails<br>2 = Animal Guessing<br><br>Choose 1 or 2.`;
+                /*
+                screenState = `Welcome to<b><center><big>Game Mode</big></center></b><small>Your current score is ${points}</small><br><br>This is a guessing game. I am either cat, human, insect, or octopus.<br><br>`;
+                setTimeout(function () {
+                    screenState += `How many legs do you think I have?<br><br>`;
+                    turnOn(setButton[3]);
+                    talkPhone();
+                }, 800);
+                */
+                talkPhone();
+                turnOn(setButton[7]);
+            } else if (choice == 5) {
+                // Convo with phone
+                screenState = `<em><small>myPhone</small></em><br>Hey, Friend. What's your name?<br><br>`;
+                talkPhone();
+                turnOn(setButton[5]);
+                
+            }
+            else {
+                you.value = "";
+                screenState += `<br>Sorry. '${choice}' is not a valid choice.<br>Please choose 1, 2, 3 or 4.<br>`;
+                talkPhone();
+            }
+        }
+
+        // Shows images from the show
+        function tour() {
+            var text = you.value;
+            var image = document.getElementById(images[imageIndex]);
+
+            you.value = "";
+            if (text.toUpperCase() === 'MENU') {
+                previousImage.style = 'display:none';
+                screenState = initialScreenState;
+                turnOn(setButton[0]);
+                talkPhone();
+            } else {
+                image.style = 'display:inline';
+                imageIndex++;
+                if (imageIndex != 0) {
+                    previousImage.style = 'display:none';
+                    previousImage = image;
+                }
+                if (imageIndex >= images.length) imageIndex = 0;
+            }
+        }
+
+        // Scroll through critiques of show
+        function scrollCrits() {
+            if (you.value.toUpperCase() === 'MENU') {
+                screenState = initialScreenState;
+                turnOn(setButton[0]);
+            } else {
+                if (t == 13) spaz();
+                else {
+                    screenState += `<br>"${critiques[Math.round(Math.random() * (critiques.length - 1))]}"<br>`;
+                    t++;
+                    talkPhone();
+                    turnOn(setButton[6]);
+                }
+            }
+        }
+
+        // Get user name 
+        function getName() {
+            screenState += `<small>${userName}</small><br>`;
+            userName = you.value;
+            screenState += `${userName}<br><br>`;
+            talkPhone();
+            turnOn(setButton[1]);
+            setTimeout(function () {
+                screenState += `<em><small>myPhone</small></em><br>OK, ${userName}, ` +
+                           `${thoughts[Math.round(Math.random() * critiques.length - 1)]}<br><br>`;
+                talkPhone();
+            }, 1400); 
+        }
+
+        // Sends message to phone, phone responds
+        function sendToPhone() {
+            var userInput = you.value;
+            var randomIndex = Math.round(Math.random() * (thoughts.length - 1));
+
+            // Returns to menu
+            if (userInput.toUpperCase() === 'MENU') {
+                screenState = initialScreenState;
+                turnOn(setButton[0]);
+            } else {
+                // Prints user input then responds
+                if (userInput == "") userInput = " . . .";
+                inputArray[inputIndex] = userInput;
+                screenState += `<em><small>${userName}</small></em><br>${userInput}<br><br>`;
+                turnOn(setButton[1]);
+                talkPhone();
+                if (inputIndex == 6) {//7) {
+                    // Change color and show text
+                    screenState = `<em><small>myPhone</small></em><br>Do you ever feel you're missing out on something?<br><br>`;
+                    flashRed();
+                    talkPhone();
+                    turnOn(setButton[1]);
+                    for (var i = 150; i < 3000; i += 150) {
+                        flashRed(i);
+                    }
+                    setTimeout(function () {
+                        turnOff();
+                    }, 6000);
+                    
+                    
+                } else {
+                    setTimeout(function () {
+                        //screenState += `myPhone:<br>${thoughts[inputIndex]}<br><br>`; USE THIS instead of the next line
+                        screenState += `<em><small>myPhone</small></em><br>${thoughts[randomIndex]}<br><br>`;
+                        turnOn(setButton[1]);
+                        talkPhone();
+                    }, 1500);
+                }
+                inputIndex += 1;
+            }
+
+        }
+        function flashRed(time) {
+            var flash = document.getElementById('phone');
+            setTimeout(function () {
+                flash.style.background = '#f03030';
+                setTimeout(function () {
+                    turnOn(setButton[1]);
+                }, time + 100);
+            }, time);
+        }
+
+        // Changes phone and page body colors
+        function changeShell(color, background) {
+            var shell = document.getElementById('phone');
+            shell.style.borderLeft = `10px solid ${color}`;
+            shell.style.borderRight = `10px solid ${color}`;
+            shell.style.borderBottom = `60px solid ${color}`;
+            shell.style.borderTop = `60px solid ${color}`;
+            menu.style.background = color;
+            //speaker.style.background = color;
+            document.body.style.background = background;
+        }
+
+        // Takes user input and changes color or displays error message
+        function colorChoice() {
+            var choice = you.value;
+            if (choice.toUpperCase() === 'MENU') {
+                screenState = initialScreenState;
+                turnOn(setButton[0]);
+                talkPhone();
+            } else {
+                if (choice.toUpperCase() === 'RED') changeShell('rgb(210, 60, 60)', 'rgb(120, 180, 180)');
+                else if (choice.toUpperCase() === 'BLUE') changeShell('rgb(60, 50, 180)', 'rgb(240, 80, 30');
+                else if (choice.toUpperCase() === 'GREEN') changeShell('rgb(60, 190, 160)', 'rgb(30, 160, 240');
+                else if (choice.toUpperCase() === 'WHITE') changeShell('rgb(244, 235, 240)', 'rgb(100, 100, 100)');
+                else if (choice.toUpperCase() === 'TURQUOISE') changeShell('rgb(0, 150, 150', 'rgb(100, 0, 0)');
+                else if (choice.toUpperCase() === 'YELLOW') changeShell('rgb(240, 200, 102', 'rgb(130, 0, 100)');
+                else if (choice.toUpperCase() === 'BROWN') changeShell('rgb(100, 40, 40)', 'rgb(40, 40, 200)');
+                else if (choice.toUpperCase() === 'BLACK') changeShell('rgb(10, 40, 40)', 'rgb(99, 100, 120)');
+                else if (choice.toUpperCase() === 'ORANGE') changeShell('#e99010', '#2060a5');
+                else screenState += `<br>${choice} is not a choice. Please enter a valid color.<br>${colors}`;
+                turnOn(setButton[2]);
+                talkPhone();
+            }
+            
+        }
+
+        // Select Bet or Guessing Game
+        function selectGame() {
+            if (you.value.toUpperCase() === 'MENU') {
+                screenState = initialScreenState;
+                turnOn(setButton[0]);
+                talkPhone();
+            } else if (you.value == '1') {
+                // Betting Game
+                screenState = `Welcome to<b><center><big>Heads Or Tails</big></center></b><br>Choose heads or tails.` +
+                    `<br>I'll do the same.<br><br>First to 8 correct guesses wins.`;
+                correct = 0;
+                total = 0;
+                computerGuesses = 0;
+                talkPhone();
+                // Change buttons
+                you.style = 'display:none';
+                document.getElementById(currentButton).style.display = 'none';
+                document.getElementById('heads').style.display = 'inline';
+                document.getElementById('tails').style.display = 'inline';
+               
+            } else if (you.value == '2') {
+                // Animal Guessing Game
+                screenState = `Welcome to<b><center><big>The Animal Guessing Game</big></center></b><br><br>` +
+                            `I am either cat, human, insect, or octopus.<br><br>How many legs do you think I have?<br><br>`;
+                talkPhone();
+                turnOn(setButton[3]);
+            }
+        }
+
+        // Game where you bet on a coin toss against random generated guess
+        function bet(guess) {
+            // set toss to heads or tails
+            var tossOneOrZero = Math.round(Math.random());
+            var toss;
+            if (tossOneOrZero == 0) toss = 'tails';
+            else toss = 'heads';
+            // Random guess from phone
+            var compGuess = Math.round(Math.random());
+            if (compGuess == tossOneOrZero) computerGuesses++;
+            var compGuessInWords;
+            if (compGuess == 0) compGuessInWords = 'tails';
+            else compGuessInWords = 'heads';
+            total++;
+            if (guess == toss) correct++;
+            screenState += `<br><br>The Toss: ${toss}<br>You: ${guess}. ${correct} of ${total}<br>Me: ${compGuessInWords}. ${computerGuesses} of ${total}`;
+            
+            talkPhone();
+           
+            if (computerGuesses == 8 || correct == 8) {
+                document.getElementById('heads').style.display = 'none';
+                document.getElementById('tails').style.display = 'none';
+                if (correct != 8) screenState += `<br><br><br><br>I win`;
+                else if (computerGuesses != 8) screenState += `<br><br><br><br>You win.`;
+                else screenState += `<br><br><br><br>Tie...`;
+                talkPhone();
+                setTimeout(function () {
+                    screenState += `<br><br><br>Shutting Down. `;
+                    talkPhone();
+                    for (var i = 200; i < 3000; i += 700) {
+                        setTimeout(function () {
+                            screenState += `. `;
+                            talkPhone();
+                        }, i);
+                    }                    
+                    setTimeout(function () {
+                        turnOff();
+                    }, 3000);
+                }, 2000);
+                
+            }
+        }
+       
+        // Answer Animal is a guessing game to find out which type of animal the phone chooses
+        function answerAnimal() {
+            var answer = you.value;
+            var animal = animals[randomAnimal][1];
+            var legs = animals[randomAnimal][0];
+            you.value = "";
+            if (answer.toUpperCase() === 'MENU') {
+                screenState = initialScreenState;
+                turnOn(setButton[0]);
+                talkPhone();
+            } else if (answer == 'restart') {
+                answer = "";
+                randomAnimal = Math.round(Math.random() * (animals.length - 1));
+                turnOn(setButton[3]);
+                screenState = `OK, let's play again.<br>Current top score is ${points}.<br><br>I am cat, human, insect, or octopus.<br><br>`;
+                setTimeout(function () {
+                    screenState += `Same question: how many legs do you think I have?<br><br>`;
+                    talkPhone();
+                }, 500);
+                talkPhone();
+                animalAnswer();
+            } else if (isNaN(answer)) {
+                screenState += `Enter your guess as a number. Ex: '3'<br><br>Guess Again<br><br>`;
+                talkPhone();
+            } else {
+                screenState += `${answer} legs...<br><br>`;
+                talkPhone();
+                setTimeout(function () {
+                    if (answer == legs) {
+                        points += 5000;
+                        screenState += `Yep, I have ${answer} legs.<br>I'm a ${animal}!<br>Total points: ${points}.<br><br>`;
+                        setTimeout(function () {
+                            screenState += `Type restart to play again.<br><br>`;
+                            talkPhone();
+                        }, 3000);
+                    } else if (answer > legs) {
+                        screenState += `Nope, I have <b>fewer</b> than ${answer} legs. Guess again.<br><br>`;
+                    } else {
+                        screenState += `Nope, I have <b>more</b> than ${answer} legs. Guess again.<br><br>`;
+                    }
+                    talkPhone();
+                }, 1000);
+            }
+        }
+
+        function turnOn(button) {
+            you.value = "";
+            document.getElementById('humanSideBox').style = 'inline';
+            document.getElementById('phone').style.background = 'rgb(136, 217, 233)';
+            document.getElementById('phoneScreen').innerHTML = screenState;
+            you.style = "display:inline";
+            document.getElementById(currentButton).style = 'display:none';
+            document.getElementById(button).style = "display:inline";
+            document.getElementById('hShadow').style = 'display:inline';
+            currentButton = button;
+            if (currentButton == setButton[0]) you.placeholder = `Talk to Phone`;
+            else if (currentButton == setButton[5]) you.placeholder = `Enter Your Name Here`;
+            else you.placeholder = `Type "menu" for menu`;
+            switchOn = true;
+        }
+
+        // Turn phone off
+        function turnOff() {
+            // Turn off text box and green box
+            document.getElementById('humanSideBox').style = 'display:none';
+            document.getElementById('hShadow').style.display = 'none';
+            you.style = 'display:none';
+            // Turn off buttons
+            document.getElementById('heads').style.display = 'none';
+            document.getElementById('tails').style.display = 'none';
+            document.getElementById(currentButton).style = 'display:none';
+            // Turn off phone screen
+            document.getElementById('phone').style.background = 'rgb(55, 55, 55)';
+            document.getElementById('phoneScreen').innerHTML = "";
+            switchOn = false;
+        }
+
+        // This is the phone's top button. Turns the phone on or off.
+        function offOn() {
+            if (switchOn == true) {
+                turnOff();
+            } else {
+                screenState = initialScreenState;
+                turnOn(setButton[0]);
+
+            }
+        }
+
+        function talkPhone() {
+            if (switchOn == true) {
+                var screen = document.getElementById('phoneScreen');
+                screen.innerHTML = screenState;
+                screen.scrollTop = screen.scrollHeight;
+            }
+        }
+
+        function backToMenu() {
+            document.getElementById('heads').style.display = 'none';
+            document.getElementById('tails').style.display = 'none';
+			previousImage.style.display = 'none';
+            screenState = initialScreenState;
+            talkPhone();
+            turnOn(setButton[0]);
+        }
+       
+        // Make the phone scroll through a bunch of 0's and 1's
+        function spaz() {
+            for (var i = 0; i < 95; i++) {
+                if (i == 0) screenState += '<br><br>';
+                screenState += Math.round(Math.random());
+                talkPhone();
+            }
+            //talkPhone();
+            //turnOn(setButton[7]);
+            /*
+            document.getElementById('spazOff').style = "display:inline";
+            document.getElementById('spaz').style = 'display:none';
+            var you = you.value;
+            screenState = "";
+            // turnOn(); without this, cannot run again
+            for (var i = 0; i < 500; i++) {
+                screenState = screenState + Math.round(Math.random());
+                talkPhone();
+            }
+            var go = setInterval(spaz, 1001);
+            */
+        }
+
+        function spazOff() {
+            clearTimeout(spaz);
+            screenState = you.value;
+            turnOff();
+        }
+    </script>
+    
+</body>
+</html>
