@@ -1,0 +1,159 @@
+﻿        
+        .human {
+            position: absolute;
+            top: 300px;
+            right: 300px;
+        }
+        #heads {
+            position: absolute;
+            top: 250px;
+            right:350px;
+        }
+        #tails {
+            position: absolute;
+            top: 300px;
+            right: 355px;
+        }
+       
+        .onPhone {
+            position: absolute;
+            top: 128px;
+            left: 285px;
+            width: 180px;
+            height: 291px;
+            padding: 10px;
+            overflow: auto;
+            word-wrap: break-word;
+        }
+        ::-webkit-scrollbar {
+            width:6px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color:rgb(35, 88, 103);
+        }
+        #shadow {
+            position:absolute;
+            top: 90px;
+            left:257px;
+            height:430px;
+            width:220px;
+            border-radius: 25px;
+            background: #805580;
+        }
+        #phone {
+            position: absolute;
+            top: 50px;
+            left: 275px;
+            height: 310px;
+            width: 200px;
+            border-left: 10px solid black;
+            border-right: 10px solid black;
+            border-bottom: 60px solid black;
+            border-top: 60px solid black;
+            border-radius: 25px;
+            background: rgb(55, 55, 55);
+        }
+        
+
+        #phoneScreen {
+            font-family: Tahoma;
+        }
+
+        .showName {
+            position:relative;
+            top:480px;
+            text-align:center;
+            color:#606060;
+
+        }
+        #topButton {
+            position: absolute;
+            top:60px;
+            left: 420px;
+            height: 9px;
+            width: 40px;
+            border: none;
+            background: rgb(255, 100, 90);
+        }
+
+        #menu {
+            position: absolute;
+            top: 450px;
+            left: 370px;
+            height: 33px;
+            width: 33px;
+            border-radius: 100%;
+            background: #252525;
+            border-color: #404040;
+        }   
+
+        #speaker {
+            position: absolute;
+            top: 85px;
+            left: 370px;
+            height: 10px;
+            width: 40px;
+            border-radius: 25px;
+            background: #505050;
+            
+        }
+        #hShadow {
+            position:absolute;
+            height:120px;
+            width:200px;
+            border-radius:25px;
+            background:#805580;
+            right:290px;
+            top:240px;
+        }
+        
+         #humanSideBox {
+            position: absolute;
+            top: 200px;
+            right: 275px;
+            height: 120px;
+            width: 200px;
+            border-radius: 25px;
+            background: rgb(120, 193, 156);   
+        }
+
+         #guidedListen {
+             top: 175px;
+             right:425px;
+         }
+         #guidedConversation {
+             top: 175px;
+             right: 350px;
+         }
+         
+         #you {
+             position: absolute;
+             top: 275px;
+         }
+
+         img {
+             background-size:100%;
+         }
+
+          .image {
+            position: absolute;
+            top: 129px;
+            left: 285px;
+            width: 200px;
+            height: 310px;
+            padding: 0px;
+        }
+
+         #spaz {
+             top: 350px;
+         }
+
+         #spazOff {
+             top: 350px;
+         }
+
+         body {
+             background: #96a7d0;
+         }
+
+    
