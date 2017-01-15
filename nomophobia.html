@@ -57,6 +57,7 @@
         <button id="nWest" class="mapButtons" onclick="move(2, 200, 60)" style="display:none">Move</button>
         <!-- See Button (to view gallery) -->
         <button id="see" class="mapButtons" onclick="see(locale)" style="display:none">Look</button>
+		<button id="backToMap" class="mapButtons" onclick="backToMap()" style="display:none">Back To Map</button>
         
         
     </div>
@@ -170,35 +171,25 @@
 	    
 	}
 
-	function see(spot) {
+	function see(locale) {
 	    var image;
-	    switch (spot) {
+	    switch (locale) {
 	        case 0:
-	            image = document.getElementById('wallZero');
+	            image = document.getElementById('emptyGallery4');
 	        case 1:
-	            image = document.getElementById('wallOne');
+	            image = document.getElementById('emptyGallery1');
 	            break;
 	        case 2:
-	            image = document.getElementById('image2');
+	            image = document.getElementById('emptyGallery3');
 	            break;
 	        default:
-	            turnOn();
+	            image = document.getElementById('emptyGallery4');
+				break;
 	    }
-	    ctx.drawImage(image, 0, 0, phone.width, phone.height, 0, 0, phone.width, phone.height);
+	    ctx.drawImage(image, 0, 0, phone.width, phone.height);
 	    displayNone(movers);
-        /*
-	    var backToMap = document.createElement("BUTTON");
-	    backToMap.setAttribute("type", "button");
-	    backToMap.setAttribute("class", "mapButtons");
-	    backToMap.setAttribute("id", "backToMap");
-	    //backToMap.addEventListener("click", "games();");
-	    backToMap.setAttribute("style", "position:absolute; top: 50%; left: 50%; height: 40px; transform:translate(100px, 100px); "
-            + "border-radius: 20px; color: #ffcccc; background-color: #111144;");
-	    var t = document.createTextNode("Back to Map");
-	    backToMap.appendChild(t);
-	    document.body.appendChild(backToMap);
-	    //document.getElementById("backToMap").addEventListener("onclick", function () { galleryMap(); });
-        */
+        
+	
 	}
     // Shows gallery map with figure
 	function galleryMap() {
@@ -317,7 +308,6 @@
             displayNone(gameButtons);
             displayNone(gameRs);
             displayNone(movers);
-            document.getElementById("backToMap").style.display = 'none';
         }
         // To hide buttons of a class
         function displayNone(buttonClass) {
