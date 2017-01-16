@@ -57,7 +57,9 @@
         <button id="nWest" class="mapButtons" onclick="move(2, 200, 60)" style="display:none">Move</button>
         <!-- See Button (to view gallery) -->
         <button id="see" class="mapButtons" onclick="see(locale)" style="display:none">Look</button>
-		<button id="backToMap" class="mapButtons" onclick="backToMap()" style="display:none">Back To Map</button>
+		<!-- To navigate within the map images -->
+		<button id="backToMap" class="mapNavButtons" onclick="galleryMap()" style="display:none">Back To Map</button>
+		<button id="nextMapImage" class="mapNavButtons" onclick="nextGalleryImage()" style="display:none">Continue</button>
         
         
     </div>
@@ -89,6 +91,11 @@
 
         // For Gallery Map
         var locale = 0;
+		var mapImages = ['emptyGallery1', 'emptyGallery2', 'emptyGallery3', 'emptyGallery4', 'emptyGallery5'];
+		var mapImageIndex = 0;
+		var currentEmptyImage = document.getElementById(mapImages[0]);
+		var previousEmptyImage = document.getElementById(mapImages[1]);
+		
         // arrays of buttons
         var allApps = document.getElementsByClassName('apps');
         var colorButtons = document.getElementsByClassName('colors');
@@ -96,6 +103,7 @@
         var gameButtons = document.getElementsByClassName("game");
         var gameRs = document.getElementsByClassName("gameR");
         var movers = document.getElementsByClassName("mapButtons");
+		var mapNav = document.getElementsByClassName("mapNavButtons");
         
 	// Map buttons to numbers 1-9
         var gameMap = new Map();
@@ -143,7 +151,7 @@
 	    ctx.fillRect(70, 50, 300, 30);
 	    ctx.fillRect(70, 70, 100, 100);
 	    displayInline(movers);
-	    document.getElementById("backToMap").style.display = 'none';
+	    displayNone(mapNav);
 
 	}
 
@@ -171,9 +179,9 @@
 	    
 	}
 
-	function see(locale) {
+	function see(spot) {
 	    var image;
-	    switch (locale) {
+	    switch (spot) {
 	        case 0:
 	            image = document.getElementById('emptyGallery4');
 	        case 1:
@@ -183,13 +191,26 @@
 	            image = document.getElementById('emptyGallery3');
 	            break;
 	        default:
-	            image = document.getElementById('emptyGallery4');
+	            image = document.getElementById('emptyGallery2');
 				break;
 	    }
 	    ctx.drawImage(image, 0, 0, phone.width, phone.height);
 	    displayNone(movers);
+		displayInline(mapNav);
         
 	
+	}
+	
+	// Shows next gallery map image
+	function nextGalleryImage() {
+		turnOff();
+		displayInline(mapNav);
+		currentImage = document.getElementById(mapImages[mapImageIndex]);
+		ctx.drawImage(currentImage, 0, 0, phone.width, phone.height);
+		previousEmptyImage.style.display = "none";
+		previousEmptyImage = currentEmptyImage;
+		if (mapImageIndex < mapImages.length - 1) mapImageIndex++;
+		else mapImageIndex = 0;
 	}
     // Shows gallery map with figure
 	function galleryMap() {
@@ -308,6 +329,7 @@
             displayNone(gameButtons);
             displayNone(gameRs);
             displayNone(movers);
+			displayNone(mapNav);
         }
         // To hide buttons of a class
         function displayNone(buttonClass) {
@@ -373,6 +395,28 @@
         #sEast {
             transform: translate(-230px, 70px) rotate(270deg);
         }
+		
+		.mapNavButtons {
+			top: 50%;
+			left: 50%;
+			background-color: #33aaDD;
+			color: #eeeeee;
+			border: 2px solid #ee8866;
+			border-radius: 5px;
+			height: 40px;
+			
+		}
+		#nextMapImage {
+			position:absolute;
+			transform:translate(150px, 100px);
+			
+		}
+		#backToMap {
+			position: absolute;
+			transform:translate(130px, -130px);
+			
+		}
+		
         body {
 
             background-color: rgb(120, 180, 180);
