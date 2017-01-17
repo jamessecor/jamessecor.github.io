@@ -1,0 +1,367 @@
+        .mapButtons {
+            position: absolute;
+            left:50%;
+            top:50%;
+            font-size:20px;
+            border-radius:10px;
+            border:2px solid #dd9d4b;
+            background-color:#ee3333;
+            color:#ccccff;
+        }
+        #see {
+            background-color:#ffdd00;
+            color:#49404B;
+            border-color:#dd9d4b;
+            height:50px;
+            transform:translate(170px, 90px);
+        }
+        #nWest {
+            transform:translate(10px, -100px);
+        }
+        #sEast {
+            transform: translate(-230px, 70px) rotate(270deg);
+        }
+		
+		.mapNavButtons {
+			top: 50%;
+			left: 50%;
+			background-color: #33aaDD;
+			color: #eeeeee;
+			border: 2px solid #ee8866;
+			border-radius: 5px;
+			height: 40px;
+			
+		}
+		#nextMapImage {
+			position:absolute;
+			transform:translate(150px, 100px);
+			
+		}
+		#backToMap {
+			position: absolute;
+			transform:translate(130px, -130px);
+			
+		}
+		
+        body {
+
+            background-color: rgb(120, 180, 180);
+            max-height: 800px;
+            max-width: 1200px;
+            
+        }
+        #time {
+            position:absolute;
+            left:50%;
+            top:50%;
+            transform:translate(100px, -100px);
+            font-size:250%;
+
+            font-family:sans-serif;
+            color:#556844;
+        }
+
+        .apps {
+            position:absolute;
+            left: 50%;
+            top:50%;
+            background-color:#AABB33;
+            color:#EEEEDD;
+            font-size: 100%;
+            text-align:center;
+            font-size:20px;
+            height: 100px;
+            width: 120px;
+            border-radius:40px;
+            border:none;
+            display:none;
+        }
+        .inApp {
+            position:absolute;
+            left: 50%;
+            top:50%;
+            transform:translate(105px, 45px);
+            background-color:#DFE5E3;
+            color:#EE3300;
+            text-align:center;
+            height: 50px;
+            border-radius:10px;
+            border: 1px solid #EE3300;
+            display:none;
+        }
+        .colors {
+            position:absolute;
+            left: 50%;
+            top:50%;
+            width: 80px;
+            color:#EEEEEE;
+            text-align:center;
+            height: 80px;
+            border-radius:50%;
+            border:2px solid white;
+            display:none;
+        }
+        #orange {
+            background-color: #e99010;
+        }
+        #red {
+            background-color: rgb(210, 60, 60);
+            transform:translate(-100px, 0);
+        }
+        #yellow {
+            background-color: rgb(240, 200, 102);
+            transform:translate(100px, 0);
+        }
+	    #turquoise {
+   	        background-color: rgb(0, 150, 150);
+	        transform:translate(-200px, -100px);
+	    }
+	    #blue {
+            background-color: rgb(60, 50, 180);
+            transform:translate(0px, -100px);
+        }
+	    #green {
+            background-color: #AABB33;
+            transform:translate(-100px, -100px);
+        }
+	    #brown {
+            background-color: rgb(100, 40, 40);
+            transform:translate(-200px, 0);
+        }
+	    #black {
+            background-color: rgb(10, 40, 40);
+            transform:translate(100px, -100px);
+        }
+	
+        
+	#setWallpaper {
+		position:absolute;
+		transform:translate(-225px, 100px);
+		height:40px;
+}
+    #next {
+        position:absolute;
+        transform:translate(150px, 100px);
+        height: 40px;
+        width: 80px;
+    }
+	
+	#shellChange {
+		background-color:#c1bb35;
+	transform:translate(-200px, 20px);
+	}
+	#showInfo {
+	transform:translate(-50px, 20px);
+	background-color: #222264;
+	}
+        
+	#tour {
+		background-color:#963344;
+		transform:translate(-210px, -120px);
+	}
+	#contact {
+		background-color:#DDDF44;
+		transform:translate(90px, 20px);
+	}
+	#galleryMap {
+		background-color: #33AABB;	
+		transform:translate(-50px, -120px);
+	}
+	
+	    .game {
+	        position:absolute;
+            left: 50%;
+            top:50%;
+            width: 50px;
+            color:#BBEEEE;
+            text-align:center;
+            height: 50px;
+            border-radius:50%;
+            border:2px solid #4940BB;
+            display:none;	
+		
+	    }
+	    #game1 {
+            transform:translate(-85px, -80px);	
+	    }
+	    #game2 {
+           	 transform:translate(-50%, -80px); 	
+	    }
+	    #game3 {
+           	transform:translate(35px, -80px);		
+	    }
+
+	    #game4 {
+		transform:translate(-85px, -50%);
+            
+	    }
+	    #game5 {
+            transform:translate(-50%, -50%);	
+	    }
+	    #game6 {
+            transform:translate(35px, -50%);	
+	    }
+
+	    #game7 {
+            transform:translate(-85px, 30px);	
+	    }
+	    #game8 {
+            transform:translate(-50%, 30px);	
+	    }
+	    #game9 {
+            transform:translate(35px, 30px);	
+	    }
+	.gameR {
+		position:absolute;
+            left: 50%;
+            top:50%;
+		height: 15px;
+            width: 15px;
+		border-radius:50%;
+		color: #FFFFAA;
+            border:2px solid #4940BB;
+            display:none;	
+		
+	}
+	
+        #correct1 {
+	transform:translate(-130px, 75px);
+            
+        }
+        #correct2 {
+	transform:translate(-130px, 55px);
+            
+        }
+        #correct3 {
+	transform:translate(-130px, 35px);
+            
+        }
+
+        #correct4 {
+	transform:translate(-130px, 15px);
+            
+        }
+
+        #correct5 {
+	transform:translate(-130px, -5px);
+           
+        }
+
+        #correct6 {
+	transform:translate(-130px, -25px);
+            
+        }
+
+        #correct7 {
+	transform:translate(-130px, -45px);
+           
+        }
+
+        #correct8 {
+	transform:translate(-130px, -65px);
+            }
+
+        #correct9 {
+	transform:translate(-130px, -85px);
+           
+        }
+      
+        #phone {
+            position:absolute;
+            left:50%;
+            top: 50%;
+            transform:translate(-50%, -50%);
+            height:300px;
+            width:500px;
+            border-bottom: 15px solid #440022;
+            border-top: 15px solid #440022;
+            border-left: 70px solid #440022;
+            border-right: 80px solid #440022;
+            border-radius: 20px;
+            background-color: #555555;
+        }
+        #on {
+            position:absolute;
+            left:50%;
+            top:50%;
+            transform:translate(-225px,-179px);
+            height:15px;
+            width:50px;
+            background-color:#ee4040;
+            border:none;
+        }
+        #back {
+            position:absolute;
+            left:50%;
+            top:50%;
+            transform:translate(260px, -25px);
+            height:50px;
+            width:50px;
+            border-radius:100%;
+            background-color:rgb(210, 90, 90);
+            border:2px solid #555555;
+        }
+	#shadow {
+            position:absolute;
+            left:50%;
+            top:50%;
+            transform:translate(-45%, -190px);
+            
+            height:320px;
+            width:650px;
+            border-radius:25px;
+            background-color:#225555;
+	}
+    #speaker {
+        position:absolute;
+        left:50%;
+        top:50%;
+        transform:translate(-298px, -50%);
+        height:50px;
+        width:10px;
+        border-radius:5px;
+        background-color:#666666;
+    }
+    
+    #outerCamera {
+        position:absolute;
+        left:50%;
+        top:50%;
+        transform:translate(-310px, 95px);
+        height:30px;
+        width:30px;
+        border-radius:50%;
+        background-color:#444444;
+    }
+
+    #camera {
+        position:absolute;
+        left:50%;
+        top:50%;
+        transform:translate(-300px, 105px);
+        height:10px;
+        width:10px;
+        border-radius:50%;
+        background-color:#333333;
+    }
+        h1 {
+            position: absolute;
+            top:50%;
+            left:50%;
+            transform:translate(-50%, 160px);
+            color:#558575;
+        }
+        h3 {
+            position: absolute;
+            top:50%;
+            left:50%;
+            transform:translate(-50%, 210px);
+            color:#558575;
+        }
+        #webMobileLinks {
+            position: absolute;
+            top:50%;
+            left:50%;
+            transform:translate(-50%, 260px);
+            color:#558575;
+        }
