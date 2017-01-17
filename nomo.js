@@ -22,7 +22,7 @@
 		document.getElementById('see').addEventListener("click", function() { see(locale); })
 		document.getElementById('backToMap').addEventListener("click", function() { galleryMap(); })
 		document.getElementById('nextMapImage').addEventListener("click", function() { nextGalleryImage(); })
-		setTimeout(function() { turnOn(); }, 1500);
+		setTimeout(function() { turnOn(); }, 1000);
 	}
         // Images for Tour
         var images = ['image3', 'image1', 'image2', 'image4', 'image5'];
