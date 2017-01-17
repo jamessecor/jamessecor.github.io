@@ -147,11 +147,11 @@
     }
 	
 	#shellChange {
-		background-color:#c1bb35;
-	transform:translate(-200px, 20px);
+		background-color:#c17b00;
+	transform:translate(-210px, 20px);
 	}
 	#showInfo {
-	transform:translate(-50px, 20px);
+	transform:translate(-60px, 20px);
 	background-color: #222264;
 	}
         
@@ -160,12 +160,12 @@
 		transform:translate(-210px, -120px);
 	}
 	#contact {
-		background-color:#DDDF44;
+		background-color:#339c33;
 		transform:translate(90px, 20px);
 	}
 	#galleryMap {
 		background-color: #33AABB;	
-		transform:translate(-50px, -120px);
+		transform:translate(-60px, -120px);
 	}
 	
 	    .game {
