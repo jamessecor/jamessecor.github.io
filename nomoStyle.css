@@ -1,13 +1,13 @@
-        .mapButtons {
-            position: absolute;
-            left:50%;
-            top:50%;
-            font-size:20px;
-            border-radius:10px;
-            border:2px solid #dd9d4b;
-            background-color:#ee3333;
-            color:#ccccff;
-        }
+	.mapButtons {
+		position: absolute;
+		left:50%;
+		top:50%;
+		font-size:20px;
+		border-radius:10px;
+		border:2px solid #dd9d4b;
+		background-color:#ee3333;
+		color:#ccccff;
+	}
         #see {
             background-color:#ffdd00;
             color:#49404B;
@@ -22,26 +22,8 @@
             transform: translate(-230px, 70px) rotate(270deg);
         }
 		
-		.mapNavButtons {
-			top: 50%;
-			left: 50%;
-			background-color: #33aaDD;
-			color: #eeeeee;
-			border: 2px solid #ee8866;
-			border-radius: 5px;
-			height: 40px;
-			
-		}
-		#nextMapImage {
-			position:absolute;
-			transform:translate(150px, 100px);
-			
-		}
-		#backToMap {
-			position: absolute;
-			transform:translate(130px, -130px);
-			
-		}
+	
+		
 		
         body {
 
@@ -61,47 +43,85 @@
             color:#556844;
         }
 
-        .apps {
-            position:absolute;
-            left: 50%;
-            top:50%;
+	.apps {
+		position:absolute;
+		left: 50%;
+		top:50%;
+		
+		background-color:#AABB33;
+		color:#EEEEDD;
+		font-size: 100%;
+		text-align:center;
+		font-size:20px;
+		height: 100px;
+		width: 120px;
+		border-radius:40px;
+		border:none;
+		display:none;
+	}
+		
+	
+		#shellChange {
+			background-color:#c17b00;
+		transform:translate(-210px, 20px);
+		}
+		#showInfo {
+		transform:translate(-60px, 20px);
+		background-color: #222264;
+		}
 			
-            background-color:#AABB33;
-            color:#EEEEDD;
-            font-size: 100%;
-            text-align:center;
-            font-size:20px;
-            height: 100px;
-            width: 120px;
-            border-radius:40px;
-            border:none;
-            display:none;
-        }
-        .inApp {
-            position:absolute;
-            left: 50%;
-            top:50%;
-            transform:translate(105px, 45px);
-            background-color:#DFE5E3;
-            color:#EE3300;
-            text-align:center;
-            height: 50px;
-            border-radius:10px;
-            border: 1px solid #EE3300;
-            display:none;
-        }
-        .colors {
-            position:absolute;
-            left: 50%;
-            top:50%;
-            width: 80px;
-            color:#EEEEEE;
-            text-align:center;
-            height: 80px;
-            border-radius:50%;
-            border:2px solid white;
-            display:none;
-        }
+		#tour {
+			background-color:#963344;
+			transform:translate(-210px, -120px);
+		}
+		#contact {
+			background-color:#339c33;
+			transform:translate(90px, 20px);
+		}
+		#galleryMap {
+			background-color: #33AABB;	
+			transform:translate(-60px, -120px);
+		}
+		
+	.inApp {
+		position:absolute;
+		left: 50%;
+		top:50%;
+		transform:translate(105px, 45px);
+		background-color:#DFE5E3;
+		color:#EE3300;
+		text-align:center;
+		height:30px;
+		border-radius:10px;
+		border: 1px solid #EE3300;
+		display:none;
+	}
+		#backToMap {
+			position: absolute;
+			transform:translate(150px, 50px);			
+		}
+		#setWallpaper {
+		position:absolute;
+		transform:translate(-225px, 100px);
+		}
+		#next {
+			position:absolute;
+			transform:translate(150px, 100px);
+			width: 80px;
+		}
+		
+	.colors {
+		position:absolute;
+		left: 50%;
+		top:50%;
+		width: 80px;
+		color:#EEEEEE;
+		text-align:center;
+		height: 80px;
+		border-radius:50%;
+		border:2px solid white;
+		display:none;
+	}
         #orange {
             background-color: #e99010;
         }
@@ -134,54 +154,19 @@
             transform:translate(100px, -100px);
         }
 	
-        
-	#setWallpaper {
+	.game {
 		position:absolute;
-		transform:translate(-225px, 100px);
-		height:40px;
-}
-    #next {
-        position:absolute;
-        transform:translate(150px, 100px);
-        height: 40px;
-        width: 80px;
-    }
+		left: 50%;
+		top:50%;
+		width: 50px;
+		color:#BBEEEE;
+		text-align:center;
+		height: 50px;
+		border-radius:50%;
+		border:2px solid #4940BB;
+		display:none;	
 	
-	#shellChange {
-		background-color:#c17b00;
-	transform:translate(-210px, 20px);
 	}
-	#showInfo {
-	transform:translate(-60px, 20px);
-	background-color: #222264;
-	}
-        
-	#tour {
-		background-color:#963344;
-		transform:translate(-210px, -120px);
-	}
-	#contact {
-		background-color:#339c33;
-		transform:translate(90px, 20px);
-	}
-	#galleryMap {
-		background-color: #33AABB;	
-		transform:translate(-60px, -120px);
-	}
-	
-	    .game {
-	        position:absolute;
-            left: 50%;
-            top:50%;
-            width: 50px;
-            color:#BBEEEE;
-            text-align:center;
-            height: 50px;
-            border-radius:50%;
-            border:2px solid #4940BB;
-            display:none;	
-		
-	    }
 	    #game1 {
             transform:translate(-85px, -80px);	
 	    }

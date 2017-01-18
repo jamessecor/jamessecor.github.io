@@ -19,10 +19,10 @@
 		document.getElementById('black').addEventListener("click", function() { getNewShell('rgb(10, 40, 40)', 'rgb(99, 100, 120)'); })
 		document.getElementById('sEast').addEventListener("click", function() { move(1, 85, 120); })
 		document.getElementById('nWest').addEventListener("click", function() { move(2, 200, 60); })
-		document.getElementById('see').addEventListener("click", function() { see(locale); })
+		document.getElementById('see').addEventListener("click", function() { tour(); })
 		document.getElementById('backToMap').addEventListener("click", function() { galleryMap(); })
 		document.getElementById('nextMapImage').addEventListener("click", function() { nextGalleryImage(); })
-		setTimeout(function() { turnOn(); }, 1000);
+		setTimeout(function() { onOff(); }, 1000);
 	}
         // Images for Tour
         var images = ['image3', 'image1', 'image2', 'image4', 'image5'];
@@ -264,7 +264,7 @@
             displayInline(allApps);
             displayNone(innerApp);
             displayNone(colorButtons);
-            displayNone(gameButtons);
+            //displayNone(gameButtons);
             displayNone(movers);
         }
         function turnOff() {
@@ -281,7 +281,7 @@
             displayNone(gameButtons);
             displayNone(gameRs);
             displayNone(movers);
-			displayNone(mapNav);
+			//displayNone(mapNav);
         }
         // To hide buttons of a class
         function displayNone(buttonClass) {
