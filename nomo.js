@@ -3,7 +3,6 @@
 		document.getElementById('on').addEventListener("click", function() { onOff(); } )
 		document.getElementById('back').addEventListener("click", function() { back(); } )
 		document.getElementById('showInfo').addEventListener("click", function() { showInfo(); })
-		document.getElementById('tour').addEventListener("click", function() { tour(); })
 		document.getElementById('next').addEventListener("click", function() { tour(); })
 		document.getElementById('setWallpaper').addEventListener("click", function() { setWallpaper(); })
 		document.getElementById('contact').addEventListener("click", function() { contact(); })
@@ -21,7 +20,6 @@
 		document.getElementById('nWest').addEventListener("click", function() { move(2, 200, 60); })
 		document.getElementById('see').addEventListener("click", function() { tour(); })
 		document.getElementById('backToMap').addEventListener("click", function() { galleryMap(); })
-		document.getElementById('nextMapImage').addEventListener("click", function() { nextGalleryImage(); })
 		setTimeout(function() { onOff(); }, 1000);
 	}
         // Images for Tour
@@ -39,11 +37,12 @@
 
         // For Gallery Map
         var locale = 0;
+		/* Don't need these for tour()
 		var mapImages = ['emptyGallery1', 'emptyGallery2', 'emptyGallery3', 'emptyGallery4', 'emptyGallery5'];
 		var mapImageIndex = 1;
 		var currentEmptyImage = document.getElementById(mapImages[0]);
 		var previousEmptyImage = document.getElementById(mapImages[1]);
-		
+		*/
         // arrays of buttons
         var allApps = document.getElementsByClassName('apps');
         var colorButtons = document.getElementsByClassName('colors');
@@ -51,7 +50,7 @@
         var gameButtons = document.getElementsByClassName("game");
         var gameRs = document.getElementsByClassName("gameR");
         var movers = document.getElementsByClassName("mapButtons");
-		var mapNav = document.getElementsByClassName("mapNavButtons");
+		//var mapNav = document.getElementsByClassName("mapNavButtons");
         
 		// Map buttons to numbers 1-9
         var gameMap = new Map();
