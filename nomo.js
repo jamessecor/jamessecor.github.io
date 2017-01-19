@@ -20,7 +20,15 @@
 		document.getElementById('nWest').addEventListener("click", function() { move(2, 200, 60); })
 		document.getElementById('see').addEventListener("click", function() { tour(); })
 		document.getElementById('backToMap').addEventListener("click", function() { galleryMap(); })
-		setTimeout(function() { onOff(); }, 1000);
+		ctx.fillStyle = "#dddddd";
+		ctx.font = "15px Lucida Sans Typewriter";
+		setTimeout(function() { ctx.fillText("turning on" , 90, 75); }, 500);
+		setTimeout(function() { ctx.fillText(".", 180, 75); }, 1000);
+		setTimeout(function() { ctx.fillText(".", 190, 75); }, 1500);
+		setTimeout(function() { ctx.fillText(".", 200, 75); }, 2000);
+		setTimeout(function() { ctx.fillText(".", 210, 75); }, 2500);
+		setTimeout(function() { ctx.fillText(".", 220, 75); }, 3000);
+		setTimeout(function() { onOff(); }, 3000);
 	}
         // Images for Tour
         var images = ['image3', 'image1', 'image2', 'image4', 'image5'];
@@ -63,6 +71,7 @@
         // Context for drawing on canvas
         var c = document.getElementById("phone");
         var ctx = c.getContext("2d");
+		
 		
 	
 	
