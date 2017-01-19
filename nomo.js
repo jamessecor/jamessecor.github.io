@@ -21,14 +21,16 @@
 		document.getElementById('see').addEventListener("click", function() { tour(); })
 		document.getElementById('backToMap').addEventListener("click", function() { galleryMap(); })
 		ctx.fillStyle = "#dddddd";
-		ctx.font = "15px Lucida Sans Typewriter";
-		setTimeout(function() { ctx.fillText("turning on" , 90, 75); }, 500);
-		setTimeout(function() { ctx.fillText(".", 180, 75); }, 1000);
-		setTimeout(function() { ctx.fillText(".", 190, 75); }, 1500);
-		setTimeout(function() { ctx.fillText(".", 200, 75); }, 2000);
-		setTimeout(function() { ctx.fillText(".", 210, 75); }, 2500);
-		setTimeout(function() { ctx.fillText(".", 220, 75); }, 3000);
-		setTimeout(function() { onOff(); }, 3000);
+		ctx.font = "15px Lucida Sans";
+		setTimeout(function() { ctx.fillText("turning on" , 90, 75); }, 100); // "initializing power" - "wait a sec"
+		setTimeout(function() { ctx.fillText(".", 170, 75); }, 300);
+		setTimeout(function() { ctx.fillText(".", 180, 75); }, 800);
+		setTimeout(function() { ctx.fillText(".", 190, 75); }, 1200);
+		setTimeout(function() { ctx.fillText(".", 200, 75); }, 1600);
+		setTimeout(function() { ctx.fillText(".", 210, 75); }, 2000);
+		setTimeout(function() { ctx.fillText(".", 220, 75); }, 2400);
+		setTimeout(function() { ctx.fillText(".", 230, 75); }, 2800);
+		setTimeout(function() { showInfo(); }, 3000);
 	}
         // Images for Tour
         var images = ['image3', 'image1', 'image2', 'image4', 'image5'];
@@ -58,7 +60,7 @@
         var gameButtons = document.getElementsByClassName("game");
         var gameRs = document.getElementsByClassName("gameR");
         var movers = document.getElementsByClassName("mapButtons");
-		//var mapNav = document.getElementsByClassName("mapNavButtons");
+		
         
 		// Map buttons to numbers 1-9
         var gameMap = new Map();
@@ -111,7 +113,7 @@
 	    ctx.fillRect(70, 50, 300, 30);
 	    ctx.fillRect(70, 70, 100, 100);
 	    displayInline(movers);
-	    displayNone(mapNav);
+	    
 
 	}
 
@@ -125,7 +127,7 @@
 	    ctx.fill();
 	    ctx.closePath();
 	    ctx.textAlign = "left";
-	    ctx.font = "14px Lucida Sans Typewriter";
+	    ctx.font = "14px Lucida Sans";
 	    ctx.fillStyle = "#1190d0";
 	    ctx.fillText("You", x, y - 8); 
 	}
@@ -156,7 +158,7 @@
 	    }
 	    ctx.drawImage(image, 0, 0, phone.width, phone.height);
 	    displayNone(movers);
-		displayInline(mapNav);
+		
         
 	
 	}
@@ -164,7 +166,7 @@
 	// Shows next gallery map image
 	function nextGalleryImage() {
 		turnOff();
-		displayInline(mapNav);
+		
 		currentImage = document.getElementById(mapImages[mapImageIndex]);
 		ctx.drawImage(currentImage, 0, 0, phone.width, phone.height);
 		previousEmptyImage.style.display = "none";
@@ -289,7 +291,7 @@
             displayNone(gameButtons);
             displayNone(gameRs);
             displayNone(movers);
-			//displayNone(mapNav);
+			
         }
         // To hide buttons of a class
         function displayNone(buttonClass) {
