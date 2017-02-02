@@ -1,0 +1,125 @@
+#phone {
+	position: fixed;
+	left:50%;
+	top: 50%;
+	transform:translate(-50%, -50%);
+	height:450px;
+	width:300px;
+	border-bottom: 80px solid #223;
+	border-top: 70px solid #223;
+	border-left: 15px solid #223;
+	border-right: 15px solid #223;
+	border-radius: 20px;
+	background-color: #555;
+}
+
+#topButton {
+	height: 15px;
+	width: 60px;
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	transform:translate(70px, -315px);
+	background: #8d9;
+	border: none 0;
+	border-radius: 2px;
+}
+
+#back {
+	position: fixed;
+	height: 55px;
+	width:55px;
+	left: 50%;
+	top: 50%;
+	transform:translate(-50%, 230px);
+	background: #933;
+	border: none 0;
+	border-radius: 50%;
+}
+
+.app {
+	position: fixed;
+	height: 70px;
+	width: 70px;
+	top: 50%;
+	left: 50%;
+	border: none 0;
+	border-radius: 20px;
+	color: #dee;
+	text-align: center;
+	font-family: "Lucida Sans Typewriter", "Lucida Sans", sans-serif;
+	font-size: 12px;
+}
+
+#contact {
+	background: #67f;
+	transform:translate(-100px, -150px);
+}
+
+#map {
+	background: #2d6;
+	transform:translate(-50px, -50px);
+}
+
+html {
+	background: #d76;
+}
+body, p, {
+	font-size:16px;
+	color: #bbb;
+	font-family: "Lucida Sans Typewriter", "Lucida Sans", sans-serif;
+	line-height: 125%;
+	margin-bottom: 10px;
+}
+form {
+	position: fixed;
+	width: 250px;
+	left: 50%;
+	top: 50%;
+	transform:translate(-140px, -200px);
+	padding: 10px;
+	border: 5px solid #888;
+	border-radius: 15px;
+	color: #d55;
+	background-color: #8dd;
+}
+
+input {
+	font-size: 16px;
+	width: 230px;
+	padding: 5px;
+	border: 2px solid #aaa;
+	border-radius: 5px;
+}
+
+input[type="submit"] {
+	font-size: 14px;
+	padding: 5px 15px;
+	background: #d55;
+	color: #8dd;
+	font-family: "Lucida Sans Typewriter", "Lucida Sans", sans-serif;
+	border: 0 none;
+}
+textarea {
+	width: 230px;
+	height: 42px;
+	font-size: 16px;
+	padding: 5px;
+	border: 2px solid #aaa;
+	border-radius: 5px;
+}
+
+#disclaimer {
+	font-size: 14px;
+	color: #d55;
+}
+footer {
+	position: fixed;
+	left:50%;
+	transform:translate(250px, 0);
+	z-index: 3;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	font-family: "Lucida Sans Typewriter", "Lucida Sans", sans-serif;
+}
