@@ -25,10 +25,10 @@
             overflow: auto;
             word-wrap: break-word;
         }
-        ::-webkit-scrollbar {
+        ::-webkit-scrollbar, -moz-scrollbar {
             width:6px;
         }
-        ::-webkit-scrollbar-thumb {
+        ::-webkit-scrollbar-thumb, -moz-scrollbar-thumb {
             background-color:rgb(35, 88, 103);
         }
         #shadow {
